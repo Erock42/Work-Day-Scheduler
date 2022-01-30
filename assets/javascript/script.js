@@ -1,5 +1,3 @@
-var tasks = {};
-
 //moment.js day and date
 const currentDate = 
 moment().format('dddd, MMMM Do YYYY');
@@ -29,14 +27,19 @@ console.log(currentHour)
     //});
   //});
 //};
-  
 
 //save function here
 
-var saveBtn = function() {
-    localStorage.setItem("textarea", JSON.stringify(description));
-  };
+//var saveBtn = function() {
+    //localStorage.setItem("textarea", JSON.stringify(description));
+  //};
 
+    $(".saveBtn").on("click", function () {
+        var textarea = $(this).siblings(".row").val();
+        var currenthour = $(this).parent().attr("id");
+// Save text in local storage
+        localStorage.setItem(currenthour, textarea);
+    })
 
 
 var checkTime = function () {
